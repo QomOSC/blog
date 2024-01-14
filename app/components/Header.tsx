@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { cdnJS } from "./cdn";
 
 function Header() {
 
   return (
    <div className="header-container">
     <div className="blog-info-container">
-      <Image alt="image" src={"opensource-icon.svg"} width="48" height={48} className="header-logo"/>
+      <Image alt="image" src={cdnJS("opensource-icon.svg")} width="48" height={48} className="header-logo"/>
       <span className="OSC-header-text">جامعه متن باز قم</span>
     </div>
     <div className="header-links-container">
