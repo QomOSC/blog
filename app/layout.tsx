@@ -64,9 +64,9 @@ export default function RootLayout({
   return (
     <html lang="IR-fa" dir="rtl">
       <body className={vazir.className}>
-        <Header className="w-[768px] mx-auto mt-14" />
+        <Header className="max-w-[1024px] mx-auto mt-8 lg:mt-14 px-8 lg:px-0" />
 
-        <main className="w-[768px] mx-auto">{children}</main>
+        <main className="max-w-[1024px] mx-auto px-8 lg:px-0">{children}</main>
       </body>
     </html>
   );
