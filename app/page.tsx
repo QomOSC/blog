@@ -1,32 +1,34 @@
-import Link from 'next/link'
-import { compareDesc, format, parseISO } from 'date-fns'
-import { allPosts, Post } from 'contentlayer/generated'
+import Image from "next/image";
 
-function PostCard(post: Post) {
+export default function HomePage() {
   return (
-    <div className="mb-8">
-      <h2 className="mb-1 text-xl">
-        <Link href={post.url} className="text-blue-700 hover:text-blue-900 dark:text-blue-400">
-          {post.title}
-        </Link>
-      </h2>
-      <time dateTime={post.publishedAt} className="mb-2 block text-xs text-gray-600">
-        {format(parseISO(post.publishedAt), 'LLLL d, yyyy')}
-      </time>
-      <div className="text-sm [&>*]:mb-3 [&>*:last-child]:mb-0" dangerouslySetInnerHTML={{ __html: post.body.raw }} />
-    </div>
-  )
-}
+    <>
+      <div className="flex justify-between items-center mt-16">
+        <div className="flex-1">
+          <h1 className="text-4xl font-bold leading-[140%]">
+            محیطی برای اشتراک گذاری <span className="text-primary">دانش</span> و{" "}
+            <span className="text-primary">تجربه</span>
+          </h1>
 
-export default function Home() {
-  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
+          <p className="mt-5 text-gray-600">
+            انجمن متن باز قم جامعه ای با هدف افزایش مهارت و اطلاعات برنامه
+            نویسان و ایجاد محیطی برای آشنایی بیشتر
+          </p>
 
-  return (
-    <div className="mx-auto max-w-xl py-8">
-      <h1 className="mb-8 text-center text-2xl font-black">Next.js + Contentlayer Example</h1>
-      {posts.map((post, idx) => (
-        <PostCard key={idx} {...post} />
-      ))}
-    </div>
-  )
+          <div className="mt-8">
+            <button className="btn btn-primary">به ما بپیوندید</button>
+            <button className="btn btn-primary btn-outline mr-4">مشاهده رویدادها</button>
+          </div>
+        </div>
+
+        <Image
+          width={320}
+          height={295}
+          className="mr-10"
+          src={"https://assets.lexoya.com/qosc/conference.svg"}
+          alt="Hero Section"
+        />
+      </div>
+    </>
+  );
 }
