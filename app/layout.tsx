@@ -62,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="IR-fa" dir="rtl">
       <body className={vazir.className}>
         <Header className="w-[768px] mx-auto mt-14" />
 
