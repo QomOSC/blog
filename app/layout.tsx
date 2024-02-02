@@ -1,29 +1,73 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import Header from "@/app/components/Header";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const vazir = localFont({
+  src: [
+    {
+      path: "../public/static/fonts/Vazirmatn/Vazirmatn-FD-Thin.woff2",
+      weight: "100",
+    },
+    {
+      path: "../public/static/fonts/Vazirmatn/Vazirmatn-FD-ExtraLight.woff2",
+      weight: "200",
+    },
+    {
+      path: "../public/static/fonts/Vazirmatn/Vazirmatn-FD-Light.woff2",
+      weight: "300",
+    },
+    {
+      path: "../public/static/fonts/Vazirmatn/Vazirmatn-FD-Regular.woff2",
+      weight: "400",
+    },
+    {
+      path: "../public/static/fonts/Vazirmatn/Vazirmatn-FD-Medium.woff2",
+      weight: "500",
+    },
+    {
+      path: "../public/static/fonts/Vazirmatn/Vazirmatn-FD-SemiBold.woff2",
+      weight: "600",
+    },
+    {
+      path: "../public/static/fonts/Vazirmatn/Vazirmatn-FD-Bold.woff2",
+      weight: "700",
+    },
+    {
+      path: "../public/static/fonts/Vazirmatn/Vazirmatn-FD-ExtraBold.woff2",
+      weight: "800",
+    },
+    {
+      path: "../public/static/fonts/Vazirmatn/Vazirmatn-FD-Black.woff2",
+      weight: "900",
+    },
+  ],
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://qomosc.github.io/blog'),
+  metadataBase: new URL("https://qomosc.github.io/blog"),
   title: {
-    default: 'جامعه متن باز قم',
-    template: '%s | جامعه متن باز قم'
+    default: "جامعه متن باز قم",
+    template: "%s | جامعه متن باز قم",
   },
-  description: '',
+  description: "",
   openGraph: {
-    title: 'جامعه متن باز قم'
+    title: "جامعه متن باز قم",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="IR-fa" dir="rtl">
+      <body className={vazir.className}>
+        <Header className="max-w-[1024px] mx-auto mt-8 lg:mt-14 max-lg:px-8" />
+
+        <main className="max-w-[1024px] mx-auto max-lg:px-8">{children}</main>
+      </body>
     </html>
-  )
+  );
 }
